@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import ContentWrapper from "../contentWrapper/contentWrapper";
 import Img from "../lazyLoadImage/Img";
 import PosterFallback from "../../assets/avatar.png";
-import "./style.scss";
+import "./style.css";
 
 function carouselActor({ data, loading }) {
 

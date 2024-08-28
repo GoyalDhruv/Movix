@@ -5,7 +5,7 @@ import { FetchDataFromApi } from '../../utils/api'
 import ContentWrapper from '../../components/contentWrapper/contentWrapper'
 import Spinner from '../../components/spinner/Spinner'
 import MovieCard from '../../components/movieCard/movieCard'
-import './style.scss'
+import './style.css'
 
 
 function SearchResult() {
@@ -47,7 +47,7 @@ function SearchResult() {
 
 
     return (
-        <div className='searchResultsPage'>
+        <div className='searchResultsPage min-vh-100'>
             {
                 loading && <Spinner initial={true} />
             }
@@ -57,7 +57,7 @@ function SearchResult() {
                         {
                             data?.results.length > 0 ?
                                 <>
-                                    <div className="pageTitle">
+                                    <div className="pageTitle mb-3 text-white">
                                         {`Search ${data?.totalresults > 1 ? 'results' : 'result'}
                                          of '${query}'
                                         `}
@@ -78,7 +78,7 @@ function SearchResult() {
                                     </InfiniteScroll>
                                 </>
                                 :
-                                <span className='resultNotFound'>
+                                <span className='resultNotFound text-muted'>
                                     Sorry, Results not found
                                 </span>
                         }

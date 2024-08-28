@@ -11,6 +11,8 @@ import Details from './pages/details/Details'
 import SearchResult from './pages/searchResult/SearchResult'
 import Explore from './pages/explore/Explore'
 import Error404 from './pages/Error404/Error404'
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 function App() {
   const dispatch = useDispatch()

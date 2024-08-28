@@ -6,7 +6,6 @@ import ActorDetails from './actorDetails/actorDetails'
 import Cast from './cast/Cast'
 import Similar from './carousels/Similar'
 import Recommendation from './carousels/Recommendation'
-import './style.scss'
 
 function Details() {
     const { mediaType, id } = useParams()

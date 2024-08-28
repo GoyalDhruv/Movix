@@ -1,7 +1,7 @@
 import React from "react";
 import ReactPlayer from "react-player/youtube";
 
-import "./style.scss";
+import "./style.css";
 
 const VideoPopup = ({ show, setShow, videoId, setVideoId }) => {
     const hidePopup = () => {
@@ -19,7 +19,7 @@ const VideoPopup = ({ show, setShow, videoId, setVideoId }) => {
                     url={`https://www.youtube.com/watch?v=${videoId}`}
                     controls
                     width="100%"
-                    height="100%"
+                    height="500px"
                 // playing={true}
                 />
             </div>

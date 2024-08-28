@@ -8,7 +8,7 @@ import Genres from "../../../components/genres/Genres";
 import CircleRating from "../../../components/circleRating/circleRating.jsx";
 import Img from "../../../components/lazyLoadImage/Img.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
-import "./style.scss";
+import "./style.css";
 import { PlayIcon } from "../PlayIcon.jsx";
 import VideoPopup from "../../../components/videoPopup/videoPopup.jsx";
 

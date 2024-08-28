@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import ContentWrapper from "../../../components/contentWrapper/contentWrapper.jsx";
 import Img from "../../../components/lazyLoadImage/Img.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
-import "./style.scss";
+import "./style.css";
 import Carousel from "../../../components/carousel/carousel.jsx";
 
 const actorDetails = ({ id }) => {

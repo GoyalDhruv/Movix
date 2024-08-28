@@ -12,9 +12,8 @@
 
 .arrow {
     font-size: 30px;
-    color: black;
     position: absolute;
-    top: 44%;
+    top: 42%;
     transform: translateY(-50%);
     cursor: pointer;
     opacity: 0.5;
@@ -32,12 +31,12 @@
     opacity: 0.8;
 }
 
-.carouselLeftNav {
-    left: 30px;
+.carousel .carouselLeftNav {
+    left: 8%;
 }
 
-.carouselRighttNav {
-    right: 30px;
+.carousel .carouselRighttNav {
+    right: 8%;
 }
 
 .loadingSkeleton,

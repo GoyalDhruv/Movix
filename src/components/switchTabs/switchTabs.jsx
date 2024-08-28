@@ -6,26 +6,28 @@ function SwitchTabs({ data, onTabChange }) {
     const [left, setLeft] = useState(0);
 
     function activeTab(item, index) {
-        setLeft(index * 100);
+        setLeft(index * 80);
         setTimeout(() => {
             setSelectedTab(index);
-        }, 300);
+        }, 200);
         onTabChange(item, index);
     }
 
     return (
-        <div className='switchingTabs'>
-            <div className="tabItems">
-                {data.map((item, index) => (
-                    <span
-                        key={index}
-                        className={`tabItem ${selectedTab === index ? 'active' : ""}`}
-                        onClick={() => activeTab(item, index)}
-                    >
-                        {item}
-                    </span>
-                ))}
-                <span className="movingBg" style={{ left }}></span>
+        <div className='d-flex justify-content-end'>
+            <div className='switchingTabs'>
+                <div className="tabItems">
+                    {data?.map((item, index) => (
+                        <span
+                            key={index}
+                            className={`tabItem ${selectedTab === index ? 'active' : ""}`}
+                            onClick={() => activeTab(item, index)}
+                        >
+                            {item}
+                        </span>
+                    ))}
+                    <span className="movingBg" style={{ left }}></span>
+                </div>
             </div>
         </div>
     );

@@ -53,7 +53,7 @@ function SearchResult() {
             }
             {
                 !loading && (
-                    <ContentWrapper>
+                    <div className='container'>
                         {
                             data?.results.length > 0 ?
                                 <>
@@ -82,7 +82,7 @@ function SearchResult() {
                                     Sorry, Results not found
                                 </span>
                         }
-                    </ContentWrapper>
+                    </div>
                 )
             }
         </div>

@@ -44,15 +44,15 @@ const DetailsBanner = ({ video, crew }) => {
             {!loading ? (
                 <>
                     {!!data && (
-                        <React.Fragment>
+                        <>
                             <div className="backdrop-img">
                                 <Img src={url.backdrop + data?.backdrop_path} />
                             </div>
                             <div className="opacity-layer">
                             </div>
-                            <ContentWrapper>
-                                <div className="content">
-                                    <div className="left">
+                            <div className="container">
+                                <div className="content row">
+                                    <div className="left col-md-3 col-12">
                                         {
                                             data.poster_path ?
                                                 <Img className='posterImg'
@@ -64,7 +64,7 @@ const DetailsBanner = ({ video, crew }) => {
                                                 />
                                         }
                                     </div>
-                                    <div className="right">
+                                    <div className="right col-md-8 col-12">
                                         <div className="title">
                                             {`${data.name || data.title} (${dayjs(data?.release_date).format('YYYY')})`}
                                         </div>
@@ -72,7 +72,7 @@ const DetailsBanner = ({ video, crew }) => {
                                             {data.tagline}
                                         </div>
                                         <Genres data={_genres} />
-                                        <div className="row">
+                                        <div className="row_1">
                                             <CircleRating rating={data.vote_average.toFixed(1)} />
 
                                             <div className="playbtn" onClick={() => {
@@ -181,8 +181,8 @@ const DetailsBanner = ({ video, crew }) => {
                                     videoId={videoId}
                                     setVideoId={setVideoId}
                                 />
-                            </ContentWrapper>
-                        </React.Fragment>
+                            </div>
+                        </>
                     )
                     }
                 </>

@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import useFetch from '../../../hooks/useFetch';
 import { useSelector } from 'react-redux';
 import Img from "../../../components/lazyLoadImage/Img";
-import ContentWrapper from './../../../components/contentWrapper/contentWrapper';
-import './style.css';  // Updated to CSS
+import './style.css'; 
+import { RiseLoader } from 'react-spinners';
 
 function HeroBanner() {
     const [background, setBackground] = useState('');
@@ -25,37 +25,46 @@ function HeroBanner() {
     }
 
     return (
-        <div className='heroBanner'>
-            {!loading &&
-                <div className="backdrop-img">
-                    <Img src={background} alt="" />
+        <>
+            {loading ?
+
+                <div className='d-flex align-items-center justify-content-center' style={{ height: '100vh' }}>
+                    <RiseLoader />
                 </div>
-            }
+                :
+                <div className='heroBanner d-flex align-items-center'>
+                    <div className="backdrop-img">
+                        <Img src={background} alt="" />
+                    </div>
+                    <div className="opacity_layer"></div>
 
-            <div className="opacity_layer"></div>
-
-            <ContentWrapper>
-                <div className="heroBannerContent text-center">
-                    <span className="title display-4 font-weight-bold">
-                        Welcome
-                    </span>
-                    <span className="subTitle h4 font-weight-normal">
-                        Millions of movies, TV shows, and people to discover.
-                        Explore now.
-                    </span>
-                    <div className="searchInput d-flex">
-                        <input
-                            type="text"
-                            placeholder='Search for a movie or a TV show...'
-                            onKeyUp={searchQueryHandler}
-                            onChange={(e) => setQuery(e.target.value)}
-                            className="form-control rounded-start"
-                        />
-                        <button className="btn btn-primary rounded-end">Search</button>
+                    <div className='container'>
+                        <div className='row'>
+                            <div className="heroBannerContent d-flex flex-column text-center">
+                                <div className="title display-4 font-weight-bold">
+                                    Welcome
+                                </div>
+                                <div className="subTitle h4 font-weight-normal">
+                                    Millions of movies, TV shows, and people to discover.
+                                    Explore now.
+                                </div>
+                                <div className="searchInput d-flex">
+                                    <input
+                                        type="text"
+                                        placeholder='Search for a movie or a TV show...'
+                                        onKeyUp={searchQueryHandler}
+                                        onChange={(e) => setQuery(e.target.value)}
+                                        className="form-control rounded-start"
+                                    />
+                                    <button className="btn btn-primary rounded-end">Search</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </ContentWrapper>
-        </div>
+
+            }
+        </>
     );
 }
 

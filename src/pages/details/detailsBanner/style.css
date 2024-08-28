@@ -8,6 +8,7 @@
 @media (min-width: 768px) {
     .detailsBanner {
         margin-bottom: 0;
+        padding-top: 120px;
         min-height: 700px;
     }
 }
@@ -47,12 +48,12 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    /* gap: 25px; */
+    gap: 25px;
 }
 
 @media (min-width: 768px) {
     .detailsBanner .content {
-        /* gap: 50px; */
+        gap: 50px;
         flex-direction: row;
     }
 }
@@ -72,7 +73,6 @@
         max-width: 350px;
     }
 }
-
 
 .detailsBanner .content .right {
     color: white;
@@ -122,10 +122,6 @@
 
 .detailsBanner .content .right .overview .description {
     line-height: 24px;
-}
-
-.circleRating {
-    position: static;
 }
 
 .detailsBanner .content .right .circleRating {
@@ -196,7 +192,7 @@
     stroke: #ff007f;
 }
 
-.detailsBanner .content .right .row_1 {
+.detailsBanner .content .right .row {
     display: flex;
     align-items: center;
     gap: 25px;
@@ -263,19 +259,19 @@
     width: 100%;
 }
 
-.detailsBanner .detailsBannerSkeleton .right .row_1 {
+.detailsBanner .detailsBannerSkeleton .right .row {
     width: 100%;
     height: 25px;
     margin-bottom: 20px;
     border-radius: 50px;
 }
 
-.detailsBanner .detailsBannerSkeleton .right .row_1:nth-child(2) {
+.detailsBanner .detailsBannerSkeleton .right .row:nth-child(2) {
     width: 75%;
     margin-bottom: 50px;
 }
 
-.detailsBanner .detailsBannerSkeleton .right .row_1:nth-child(5) {
+.detailsBanner .detailsBannerSkeleton .right .row:nth-child(5) {
     width: 50%;
     margin-bottom: 50px;
 }

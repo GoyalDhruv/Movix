@@ -36,11 +36,11 @@
 }
 
 .carousel .carouselLeftNav {
-    left: 8%;
+    left: 30px;
 }
 
 .carousel .carouselRighttNav {
-    right: 8%;
+    right: 30px;
 }
 
 .carousel .loadingSkeleton {

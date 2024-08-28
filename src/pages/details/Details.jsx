@@ -20,6 +20,10 @@ function Details() {
         creditsLoading = creditsFetch.loading
     }
 
+    // console.log('credit', credits)
+    // console.log('video', video)
+
+
     return (
         <div>{
             mediaType === 'movie' || mediaType === 'tv' ?

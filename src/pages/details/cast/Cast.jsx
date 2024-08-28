@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Container } from "react-bootstrap"; // Bootstrap import
 import Img from "../../../components/lazyLoadImage/Img";
 import avatar from "../../../assets/avatar.png";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +20,7 @@ const Cast = ({ data, loading }) => {
 
     return (
         <div className="castSection">
-            <div className="container">
+            <Container>
                 <div className="sectionHeading">Top Cast</div>
                 {!loading ? (
                     <div className="listItems">
@@ -46,7 +47,7 @@ const Cast = ({ data, loading }) => {
                         {skeleton()}
                     </div>
                 )}
-            </div>
+            </Container>
         </div>
     );
 };

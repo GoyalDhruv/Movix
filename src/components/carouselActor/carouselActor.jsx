@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ContentWrapper from "../contentWrapper/contentWrapper";
 import Img from "../lazyLoadImage/Img";
 import PosterFallback from "../../assets/avatar.png";
 import "./style.css";
@@ -38,14 +39,14 @@ function carouselActor({ data, loading }) {
     }
     return (
         <div className="carousel">
-            <div className="container">
+            <ContentWrapper>
                 <BsFillArrowLeftCircleFill
-                    className="carouselLeftNav arrow text-white"
+                    className="carouselLeftNav arrow"
                     onClick={() => navigation('left')}
                     style={{ color: "white" }}
                 />
                 <BsFillArrowRightCircleFill
-                    className="carouselRighttNav arrow text-white"
+                    className="carouselRighttNav arrow"
                     onClick={() => navigation('right')}
                     style={{ color: "white" }}
                 />
@@ -81,7 +82,7 @@ function carouselActor({ data, loading }) {
                         {skItem()}
                     </div>
                 }
-            </div>
+            </ContentWrapper>
         </div>
     )
 }

@@ -13,8 +13,10 @@ const actorDetails = ({ id }) => {
     const { url } = useSelector((state) => state.home)
 
     const { data, loading } = useFetch(`/person/${id}`)
-
+    // console.log('data', data)
     const { data: combined_credits, loading: combined_credits_loading } = useFetch(`/person/${id}/combined_credits`)
+
+    // console.log('combined_credits2', combined_credits?.cast)
 
     const _genres = data?.genres?.map((item) => item.id)
 
@@ -30,15 +32,15 @@ const actorDetails = ({ id }) => {
             {!loading ? (
                 <>
                     {!!data && (
-                        <>
+                        <React.Fragment>
                             <div className="backdrop-img">
                                 <Img src={url.backdrop + data?.profile_path} />
                             </div>
                             <div className="opacity-layer">
                             </div>
-                            <div className="container">
-                                <div className="content row">
-                                    <div className="left col-md-3 col-12">
+                            <ContentWrapper>
+                                <div className="content">
+                                    <div className="left">
                                         {
                                             data.profile_path ?
                                                 <Img className='posterImg'
@@ -98,7 +100,7 @@ const actorDetails = ({ id }) => {
                                             )}
                                         </div>
                                     </div>
-                                    <div className="right col-md-8 col-12">
+                                    <div className="right">
                                         <div className="title">
                                             {`${data.name || data.title} (${dayjs(data?.release_date).format('YYYY')})`}
                                         </div>
@@ -125,8 +127,8 @@ const actorDetails = ({ id }) => {
 
                                     </div>
                                 </div>
-                            </div>
-                        </>
+                            </ContentWrapper>
+                        </React.Fragment>
                     )
                     }
                 </>

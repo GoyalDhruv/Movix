@@ -1,21 +1,21 @@
 import React from 'react'
-import HeroBanner from './heroBanner/HeroBanner'
-import Trending from './trending/Trending'
-import Popular from './popular/Popular'
-import Upcoming from './upcoming/Upcoming'
-import TopRated from './topRated/topRated'
-import PopularActor from './popularActor/popularActor'
+import HeroBanner from './HeroBanner'
+import Trending from './Trending'
+import Popular from './Popular'
+import Upcoming from './Upcoming'
+import TopRated from './topRated'
+import PopularActor from './popularActor'
 
 function Home() {
     return (
-        <div className='homePage'>
+        <>
             <HeroBanner />
             <Trending />
             <TopRated />
             <Popular />
             <Upcoming />
             <PopularActor />
-        </div>
+        </>
     )
 }
 

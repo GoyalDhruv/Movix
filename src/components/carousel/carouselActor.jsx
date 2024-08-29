@@ -2,10 +2,9 @@ import React, { useRef } from "react";
 import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import ContentWrapper from "../contentWrapper/contentWrapper";
 import Img from "../lazyLoadImage/Img";
 import PosterFallback from "../../assets/avatar.png";
-import "./style.css";
+import "../carousel/style.css";
 
 function carouselActor({ data, loading }) {
 
@@ -26,29 +25,28 @@ function carouselActor({ data, loading }) {
         return (
             <div className="skeletonItem">
                 <div className="posterBlock skeleton">
-                    <div className="textBlock">
-                        <div className="title skeleton">
-                            <div className="date skeleton">
-
-                            </div>
-                        </div>
+                    <div className="textBlock d-flex flex-column">
+                        <div className="title skeleton mb-3 w-100"></div>
+                        <div className="date skeleton w-75"></div>
                     </div>
                 </div>
             </div>
-        )
+        );
     }
+
+
     return (
         <div className="carousel">
-            <ContentWrapper>
+            <div className="container">
                 <BsFillArrowLeftCircleFill
                     className="carouselLeftNav arrow"
                     onClick={() => navigation('left')}
-                    style={{ color: "white" }}
+                    color="white"
                 />
                 <BsFillArrowRightCircleFill
                     className="carouselRighttNav arrow"
                     onClick={() => navigation('right')}
-                    style={{ color: "white" }}
+                    color="white"
                 />
                 {!loading ?
                     <div className="carouselItems"
@@ -73,7 +71,7 @@ function carouselActor({ data, loading }) {
                         })}
                     </div>
                     :
-                    <div className="loadingSkeleton">
+                    <div className="loadingSkeleton d-flex">
                         {skItem()}
                         {skItem()}
                         {skItem()}
@@ -82,7 +80,7 @@ function carouselActor({ data, loading }) {
                         {skItem()}
                     </div>
                 }
-            </ContentWrapper>
+            </div>
         </div>
     )
 }

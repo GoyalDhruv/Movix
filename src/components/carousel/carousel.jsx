@@ -6,7 +6,6 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
-import ContentWrapper from "../contentWrapper/contentWrapper";
 import Img from "../lazyLoadImage/Img";
 import PosterFallback from "../../assets/no-poster.png";
 import CircleRating from "../circleRating/circleRating";
@@ -32,9 +31,9 @@ function Carousel({ data, loading, endPoint, title }) {
         return (
             <div className="skeletonItem">
                 <div className="posterBlock skeleton">
-                    <div className="textBlock">
-                        <div className="title skeleton"></div>
-                        <div className="date skeleton"></div>
+                    <div className="textBlock d-flex flex-column">
+                        <div className="title skeleton mb-3 w-100"></div>
+                        <div className="date skeleton w-75"></div>
                     </div>
                 </div>
             </div>
@@ -65,7 +64,7 @@ function Carousel({ data, loading, endPoint, title }) {
                                     className="carouselItem"
                                     onClick={() => navigate(`/${item?.media_type || endPoint || 'movie'}/${item?.id}`)}
                                 >
-                                    <div className="posterBlock">
+                                    <div className="posterBlock d-flex justify-content-end align-items-end">
                                         <Img src={posterUrl} />
                                         <CircleRating rating={item?.vote_average.toFixed(1)} />
                                         <Genres data={item?.genre_ids.slice(0, 2)} />
@@ -79,7 +78,7 @@ function Carousel({ data, loading, endPoint, title }) {
                         })}
                     </div>
                 ) : (
-                    <div className="loadingSkeleton">
+                    <div className="loadingSkeleton d-flex">
                         {skItem()}
                         {skItem()}
                         {skItem()}

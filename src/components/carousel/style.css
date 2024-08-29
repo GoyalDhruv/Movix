@@ -1,20 +1,19 @@
 .carousel {
     margin-bottom: 50px;
-    position: relative;
 }
 
-.carouselTitle {
+.carousel .carouselTitle {
     font-size: 24px;
     color: white;
     margin-bottom: 20px;
     font-weight: normal;
 }
 
-.arrow {
+.carousel .arrow {
     font-size: 30px;
     color: black;
     position: absolute;
-    top: 40% !important;
+    top: 40%;
     transform: translateY(-50%);
     cursor: pointer;
     opacity: 0.5;
@@ -23,37 +22,32 @@
 }
 
 @media (min-width: 768px) {
-    .arrow {
+    .carousel .arrow {
         display: block;
     }
 }
 
-.arrow:hover {
+.carousel .arrow:hover {
     opacity: 0.8;
 }
 
-.carouselLeftNav {
+.carousel .carouselLeftNav {
     left: 5% !important;
 }
 
-.carouselRighttNav {
+.carousel .carouselRighttNav {
     right: 5% !important;
 }
 
-.loadingSkeleton,
-.carouselItems {
+
+.carousel .carouselItems {
     display: flex;
     gap: 10px;
     overflow-y: hidden;
-    /* margin-right: -20px;
-    margin-left: -20px; */
-    /* padding: 0 20px; */
 }
 
 @media (min-width: 768px) {
-
-    .loadingSkeleton,
-    .carouselItems {
+    .carousel .carouselItems {
         gap: 20px;
         overflow: hidden;
         margin: 0;
@@ -61,65 +55,52 @@
     }
 }
 
-.skeletonItem,
-.carouselItem {
+.carousel .carouselItems .carouselItem {
     width: 125px;
+    cursor: pointer;
     flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
-
-    .skeletonItem,
-    .carouselItem {
+    .carousel .carouselItems .carouselItem {
         width: calc(25% - 15px);
     }
 }
 
-@media (min-width: 992px) {
-
-    .skeletonItem,
-    .carouselItem {
+@media (min-width: 1024px) {
+    .carousel .carouselItems .carouselItem {
         width: calc(20% - 16px);
     }
 }
 
-.skeletonItem .posterBlock,
-.carouselItem .posterBlock {
-    border-radius: 12px;
+.carousel .carouselItems .carouselItem .posterBlock {
+    position: relative;
     width: 100%;
     aspect-ratio: 1 / 1.5;
-    margin-bottom: 30px;
-}
-
-.textBlock {
-    display: flex;
-    flex-direction: column;
-}
-
-.skeletonItem .title,
-.textBlock .title {
-    width: 100%;
-    height: 20px;
-    margin-bottom: 10px;
-}
-
-.skeletonItem .date,
-.textBlock .date {
-    width: 75%;
-    height: 20px;
-}
-
-.posterBlock {
-    position: relative;
     background-size: cover;
     background-position: center;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
+    margin-bottom: 30px;
     padding: 10px;
 }
 
-.circleRating {
+.carousel .carouselItems .carouselItem .posterBlock .lazy-load-image-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.carousel .carouselItems .carouselItem .posterBlock .lazy-load-image-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carousel .carouselItems .carouselItem .posterBlock .circleRating {
     width: 40px;
     height: 40px;
     position: relative;
@@ -129,26 +110,32 @@
 }
 
 @media (min-width: 768px) {
-    .circleRating {
+    .carousel .carouselItems .carouselItem .posterBlock .circleRating {
         width: 50px;
         height: 50px;
     }
 }
 
-.genres {
+.carousel .carouselItems .carouselItem .posterBlock .genres {
     display: none;
     position: relative;
 }
 
 @media (min-width: 768px) {
-    .genres {
+    .carousel .carouselItems .carouselItem .posterBlock .genres {
         display: flex;
         flex-flow: wrap;
         justify-content: flex-end;
     }
 }
 
-.textBlock .title {
+.carousel .carouselItems .carouselItem .textBlock {
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel .carouselItems .carouselItem .textBlock .title {
     font-size: 16px;
     margin-bottom: 10px;
     line-height: 24px;
@@ -158,12 +145,48 @@
 }
 
 @media (min-width: 768px) {
-    .textBlock .title {
+    .carousel .carouselItems .carouselItem .textBlock .title {
         font-size: 20px;
     }
 }
 
-.textBlock .date {
+.carousel .carouselItems .carouselItem .textBlock .date {
     font-size: 14px;
     opacity: 0.5;
+}
+
+/* Loading Skeleton */
+.carousel .loadingSkeleton {
+    gap: 10px;
+    overflow-y: hidden;
+}
+
+
+.carousel .loadingSkeleton .skeletonItem {
+    width: 125px;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .carousel .loadingSkeleton .skeletonItem {
+        width: calc(25% - 15px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel .loadingSkeleton .skeletonItem {
+        width: calc(20% - 16px);
+    }
+}
+
+.carousel .loadingSkeleton .skeletonItem .posterBlock {
+    border-radius: 12px;
+    width: 100%;
+    aspect-ratio: 1 / 1.5;
+    margin-bottom: 30px;
+}
+
+.carousel .loadingSkeleton .skeletonItem .textBlock .title,
+.carousel .loadingSkeleton .skeletonItem .textBlock .date {
+    height: 20px;
 }

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import useFetch from '../../../hooks/useFetch';
+import useFetch from '../../hooks/useFetch';
 import { useSelector } from 'react-redux';
-import Img from "../../../components/lazyLoadImage/Img";
-import './style.css';
+import Img from "../../components/lazyLoadImage/Img";
+import './HeroBanner.css';
 import ClipLoader from "react-spinners/ClipLoader";
 
 function HeroBanner() {

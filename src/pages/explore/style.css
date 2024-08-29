@@ -5,44 +5,19 @@
 
 .resultNotFound {
     font-size: 24px;
-    color: #aaa;
+    color: var(--black-light);
 }
 
-.pageHeader {
+.content {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 25px;
-    flex-direction: column;
-}
-
-@media (min-width: 768px) {
-    .pageHeader {
-        flex-direction: row;
-    }
-}
-
-.pageTitle {
-    font-size: 24px;
-    line-height: 34px;
-    color: white;
-    margin-bottom: 20px;
-}
-
-@media (min-width: 768px) {
-    .pageTitle {
-        margin-bottom: 0;
-    }
-}
-
-.filters {
-    display: flex;
+    flex-flow: row wrap;
     gap: 10px;
-    flex-direction: column;
+    margin-bottom: 50px;
 }
 
 @media (min-width: 768px) {
-    .filters {
-        flex-direction: row;
+    .content {
+        gap: 20px;
     }
 }
 
@@ -108,21 +83,4 @@
     top: 40px;
     margin: 0;
     padding: 0;
-}
-
-.content {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 10px;
-    margin-bottom: 50px;
-}
-
-@media (min-width: 768px) {
-    .content {
-        gap: 20px;
-    }
-}
-
-.movieCard .posterBlock {
-    margin-bottom: 30px;
 }

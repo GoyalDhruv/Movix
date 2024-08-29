@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { FetchDataFromApi } from '../../utils/api'
 import ContentWrapper from '../../components/contentWrapper/contentWrapper'
-import Spinner from '../../components/spinner/Spinner'
+import ClipLoader from "react-spinners/ClipLoader";
 import MovieCard from '../../components/movieCard/movieCard'
 import './style.css'
 
@@ -48,42 +48,41 @@ function SearchResult() {
 
     return (
         <div className='searchResultsPage min-vh-100'>
-            {
-                loading && <Spinner initial={true} />
-            }
-            {
-                !loading && (
-                    <ContentWrapper>
-                        {
-                            data?.results.length > 0 ?
-                                <>
-                                    <div className="pageTitle mb-3 text-white">
-                                        {`Search ${data?.totalresults > 1 ? 'results' : 'result'}
+            {loading ?
+                <div className='d-flex w-100 justify-content-center h-100 align-items-center'>
+                    <ClipLoader />
+                </div>
+                :
+                <div className='container'>
+                    {
+                        data?.results.length > 0 ?
+                            <>
+                                <div className="pageTitle mb-3 text-white">
+                                    {`Search ${data?.results.length > 1 ? 'results' : 'result'}
                                          of '${query}'
                                         `}
-                                    </div>
-                                    <InfiniteScroll
-                                        className='content'
-                                        dataLength={data?.results?.length || []}
-                                        next={fetchNextPageData}
-                                        hasMore={pageNum <= data?.total_pages}
-                                        loader={<Spinner />}
-                                    >
-                                        {data?.results.map((item, index) => {
-                                            if (item.media_type === 'person') return;
-                                            return (
-                                                <MovieCard key={index} data={item} fromSearch={true} />
-                                            )
-                                        })}
-                                    </InfiniteScroll>
-                                </>
-                                :
-                                <span className='resultNotFound text-muted'>
-                                    Sorry, Results not found
-                                </span>
-                        }
-                    </ContentWrapper>
-                )
+                                </div>
+                                <InfiniteScroll
+                                    className='content'
+                                    dataLength={data?.results?.length || []}
+                                    next={fetchNextPageData}
+                                    hasMore={pageNum <= data?.total_pages}
+                                    loader={<ClipLoader />}
+                                >
+                                    {data?.results.map((item, index) => {
+                                        if (item.media_type === 'person') return;
+                                        return (
+                                            <MovieCard key={index} data={item} fromSearch={true} />
+                                        )
+                                    })}
+                                </InfiniteScroll>
+                            </>
+                            :
+                            <span className='resultNotFound text-muted'>
+                                Sorry, Results not found
+                            </span>
+                    }
+                </div>
             }
         </div>
     )

@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Select from "react-select";
-import "./style.css";
-
 import useFetch from "../../hooks/useFetch";
 import { FetchDataFromApi } from "../../utils/api";
 import ContentWrapper from "../../components/contentWrapper/contentWrapper";
 import MovieCard from "../../components/movieCard/movieCard";
-import Spinner from "../../components/spinner/Spinner";
+import "./style.css";
+import ClipLoader from "react-spinners/ClipLoader";
 
 let filters = {};
 
@@ -97,41 +96,48 @@ const Explore = () => {
 
     return (
         <div className="explorePage">
-            <ContentWrapper>
-                <div className="pageHeader">
-                    <div className="pageTitle">
-                        {mediaType === "tv"
-                            ? "Explore TV Shows"
-                            : "Explore Movies"}
+            <div className="container">
+                <div className="row mb-3">
+                    <div className="col-lg-4">
+                        <div className="pageTitle mb-3 text-white">
+                            {mediaType === "tv"
+                                ? "Explore TV Shows"
+                                : "Explore Movies"}
+                        </div>
                     </div>
-                    <div className="filters">
-                        <Select
-                            isMulti
-                            name="genres"
-                            value={genre}
-                            closeMenuOnSelect={false}
-                            options={genresData?.genres}
-                            getOptionLabel={(option) => option.name}
-                            getOptionValue={(option) => option.id}
-                            onChange={onChange}
-                            placeholder="Select genres"
-                            className="react-select-container genresDD"
-                            classNamePrefix="react-select"
-                        />
-                        <Select
-                            name="sortby"
-                            value={sortby}
-                            options={sortbyData}
-                            onChange={onChange}
-                            isClearable={true}
-                            placeholder="Sort by"
-                            className="react-select-container sortbyDD"
-                            classNamePrefix="react-select"
-                        />
+                    <div className="col-lg-8">
+                        <div className="filters d-flex flex-md-row gap-2 flex-column justify-content-end ">
+                            <Select
+                                isMulti
+                                name="genres"
+                                value={genre}
+                                closeMenuOnSelect={false}
+                                options={genresData?.genres}
+                                getOptionLabel={(option) => option.name}
+                                getOptionValue={(option) => option.id}
+                                onChange={onChange}
+                                placeholder="Select genres"
+                                className="react-select-container genresDD"
+                                classNamePrefix="react-select"
+                            />
+                            <Select
+                                name="sortby"
+                                value={sortby}
+                                options={sortbyData}
+                                onChange={onChange}
+                                isClearable={true}
+                                placeholder="Sort by"
+                                className="react-select-container sortbyDD"
+                                classNamePrefix="react-select"
+                            />
+                        </div>
                     </div>
                 </div>
-                {loading && <Spinner initial={true} />}
-                {!loading && (
+                {loading ?
+                    <div className='d-flex w-100 justify-content-center h-100 align-items-center'>
+                        <ClipLoader />
+                    </div>
+                    :
                     <>
                         {data?.results?.length > 0 ? (
                             <InfiniteScroll
@@ -139,7 +145,7 @@ const Explore = () => {
                                 dataLength={data?.results?.length || []}
                                 next={fetchNextPageData}
                                 hasMore={pageNum <= data?.total_pages}
-                                loader={<Spinner />}
+                                loader={<ClipLoader />}
                             >
                                 {data?.results?.map((item, index) => {
                                     if (item.media_type === "person") return;
@@ -158,8 +164,8 @@ const Explore = () => {
                             </span>
                         )}
                     </>
-                )}
-            </ContentWrapper>
+                }
+            </div>
         </div>
     );
 };

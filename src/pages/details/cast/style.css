@@ -13,9 +13,9 @@
     display: flex;
     gap: 20px;
     overflow-y: hidden;
-    margin-right: -20px;
-    margin-left: -20px;
-    padding: 0 20px;
+    /* margin-right: -20px;
+    margin-left: -20px; */
+    /* padding: 0 20px; */
 }
 
 .listItem {
@@ -78,9 +78,9 @@
     display: flex;
     gap: 20px;
     overflow-y: hidden;
-    margin-right: -20px;
-    margin-left: -20px;
-    padding: 0 20px;
+    /* margin-right: -20px;
+    margin-left: -20px; */
+    /* padding: 0 20px; */
 }
 
 .skItem .circle {

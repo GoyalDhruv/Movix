@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style.css'; // Updated to use the converted CSS
+import './style.css';
 
 function SwitchTabs({ data, onTabChange }) {
     const [selectedTab, setSelectedTab] = useState(0);
@@ -15,11 +15,12 @@ function SwitchTabs({ data, onTabChange }) {
 
     return (
         <div className='switchingTabs'>
-            <div className="tabItems">
+            <div className="tabItems d-flex align-items-center">
                 {data.map((item, index) => (
                     <span
                         key={index}
-                        className={`tabItem ${selectedTab === index ? 'active' : ""}`}
+                        className={`tabItem d-flex align-items-center justify-content-center
+                             ${selectedTab === index ? 'active' : ""}`}
                         onClick={() => activeTab(item, index)}
                     >
                         {item}

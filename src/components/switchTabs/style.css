@@ -3,20 +3,16 @@
     background-color: #fff;
     border-radius: 20px;
     padding: 2px;
+    width: 200px;
 }
 
 .switchingTabs .tabItems {
-    display: flex;
-    align-items: center;
     height: 30px;
     position: relative;
 }
 
 .switchingTabs .tabItem {
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100px;
     color: var(--black);
     font-size: 14px;

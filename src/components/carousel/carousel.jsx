@@ -43,14 +43,16 @@ function Carousel({ data, loading, endPoint, title }) {
 
     return (
         <div className="carousel">
-            <ContentWrapper>
+            <div className="container">
                 {title && <div className="carouselTitle">{title}</div>}
                 <BsFillArrowLeftCircleFill
                     className="carouselLeftNav arrow"
+                    color="white"
                     onClick={() => navigation('left')}
                 />
                 <BsFillArrowRightCircleFill
                     className="carouselRighttNav arrow"
+                    color="white"
                     onClick={() => navigation('right')}
                 />
                 {!loading ? (
@@ -86,7 +88,7 @@ function Carousel({ data, loading, endPoint, title }) {
                         {skItem()}
                     </div>
                 )}
-            </ContentWrapper>
+            </div>
         </div>
     );
 }

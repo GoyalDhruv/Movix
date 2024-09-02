@@ -16,8 +16,6 @@
 }
 
 .content {
-    display: flex;
-    flex-flow: row wrap;
     gap: 10px;
     margin-bottom: 50px;
 }

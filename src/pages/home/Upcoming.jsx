@@ -11,7 +11,7 @@ function Upcoming() {
             <div className='container'>
                 <div className='row mb-3'>
                     <div className='col'>
-                        <span className="carouselTitle">Upcoming Movies</span>
+                        <span className="carouselTitle text-white h4">Upcoming Movies</span>
                     </div>
                 </div>
             </div>

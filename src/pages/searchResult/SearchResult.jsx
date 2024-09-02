@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { FetchDataFromApi } from '../../utils/api'
-import ContentWrapper from '../../components/contentWrapper/contentWrapper'
 import ClipLoader from "react-spinners/ClipLoader";
 import MovieCard from '../../components/movieCard/movieCard'
 import './style.css'
@@ -63,7 +62,7 @@ function SearchResult() {
                                         `}
                                 </div>
                                 <InfiniteScroll
-                                    className='content'
+                                    className='content d-flex flex-wrap'
                                     dataLength={data?.results?.length || []}
                                     next={fetchNextPageData}
                                     hasMore={pageNum <= data?.total_pages}

@@ -18,7 +18,7 @@ function Trending() {
             <div className='container'>
                 <div className='row mb-3'>
                     <div className='col-xl-10 col-lg-9 col-md-8 col-sm-7 col-5'>
-                        <span className="carouselTitle">Trending</span>
+                        <span className="carouselTitle text-white h4">Trending</span>
                     </div>
                     <div className='col-xl-2 col-lg-3 col-md-4 col-sm-5 col-7'>
                         <div className='d-flex justify-content-end'>

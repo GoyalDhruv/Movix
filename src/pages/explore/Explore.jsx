@@ -4,7 +4,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Select from "react-select";
 import useFetch from "../../hooks/useFetch";
 import { FetchDataFromApi } from "../../utils/api";
-import ContentWrapper from "../../components/contentWrapper/contentWrapper";
 import MovieCard from "../../components/movieCard/movieCard";
 import "./style.css";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -141,7 +140,7 @@ const Explore = () => {
                     <>
                         {data?.results?.length > 0 ? (
                             <InfiniteScroll
-                                className="content"
+                                className="content d-flex flex-wrap"
                                 dataLength={data?.results?.length || []}
                                 next={fetchNextPageData}
                                 hasMore={pageNum <= data?.total_pages}

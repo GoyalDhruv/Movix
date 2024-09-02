@@ -7,7 +7,7 @@ function Genres({ data }) {
     const { genres } = useSelector((state) => state.home)
 
     return (
-        <div className='genres'>
+        <div className='genres d-flex flex-wrap mb-4'>
             {
                 data?.map((item) => {
                     if (!genres[item]?.name) return;

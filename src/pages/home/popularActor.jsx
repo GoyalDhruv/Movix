@@ -11,7 +11,7 @@ function popularActor() {
             <div className='container'>
                 <div className='row mb-3'>
                     <div className='col'>
-                        <span className="carouselTitle">Popular Actors</span>
+                        <span className="carouselTitle text-white h4">Popular Actors</span>
                     </div>
                 </div>
             </div>

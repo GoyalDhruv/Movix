@@ -1,10 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Container } from "react-bootstrap"; // Bootstrap import
 import Img from "../../../components/lazyLoadImage/Img";
 import avatar from "../../../assets/avatar.png";
 import { useNavigate } from "react-router-dom";
-import './style.css'
+import './cast.css'
 
 const Cast = ({ data, loading }) => {
     const { url } = useSelector((state) => state.home);
@@ -19,26 +18,27 @@ const Cast = ({ data, loading }) => {
     );
 
     return (
-        <div className="castSection">
-            <Container>
-                <div className="sectionHeading">Top Cast</div>
+        <div className="mb-4 position-relative">
+            <div className="container">
+                <h4 className="text-white mb-4">Top Cast</h4>
                 {!loading ? (
-                    <div className="listItems">
+                    <div className="d-flex overflow-y-hidden gap-3">
                         {data?.map((item) => {
                             let ImgURL = item.profile_path ? url.profile + item.profile_path : avatar;
                             return (
-                                <div key={item.id} className="listItem" onClick={() => navigate(`/${item.name}/${item.id}`)}>
+                                <div key={item.id} className="text-white text-center" onClick={() => navigate(`/${item.name}/${item.id}`)}>
                                     <div className="profileImg">
                                         <Img src={ImgURL} alt={item.name} />
                                     </div>
-                                    <div className="name">{item.name}</div>
-                                    <div className="character">{item.character}</div>
+                                    <div>{item.name}</div>
+                                    <div className="character opacity-50">{item.character}</div>
                                 </div>
                             );
                         })}
                     </div>
                 ) : (
-                    <div className="castSkeleton">
+                    <div className="d-flex overflow-y-hidden gap-4">
+                        {skeleton()}
                         {skeleton()}
                         {skeleton()}
                         {skeleton()}
@@ -47,7 +47,7 @@ const Cast = ({ data, loading }) => {
                         {skeleton()}
                     </div>
                 )}
-            </Container>
+            </div>
         </div>
     );
 };

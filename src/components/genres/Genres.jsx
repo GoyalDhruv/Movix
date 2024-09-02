@@ -1,13 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import './style.css'
+import './Genres.css'
 
 function Genres({ data }) {
 
     const { genres } = useSelector((state) => state.home)
 
     return (
-        <div className='genres d-flex flex-wrap mb-4'>
+        <div className='genres d-flex flex-wrap mb-2'>
             {
                 data?.map((item) => {
                     if (!genres[item]?.name) return;

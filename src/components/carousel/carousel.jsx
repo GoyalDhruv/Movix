@@ -12,7 +12,7 @@ import CircleRating from "../circleRating/circleRating";
 import Genres from "../genres/Genres";
 import "./style.css";
 
-function Carousel({ data, loading, endPoint, title }) {
+function Carousel({ data, loading, endPoint, title, actor }) {
     const carouselContainer = useRef();
     const { url } = useSelector((state) => state.home);
     const navigate = useNavigate();
@@ -64,9 +64,11 @@ function Carousel({ data, loading, endPoint, title }) {
                                     className="carouselItem"
                                     onClick={() => navigate(`/${item?.media_type || endPoint || 'movie'}/${item?.id}`)}
                                 >
-                                    <div className="posterBlock d-flex justify-content-end align-items-end">
+                                    <div className="posterBlock d-flex justify-content-between align-items-end">
                                         <Img src={posterUrl} />
-                                        <CircleRating rating={item?.vote_average.toFixed(1)} />
+                                        {!actor &&
+                                            <CircleRating rating={item?.vote_average.toFixed(1)} />
+                                        }
                                         <Genres data={item?.genre_ids.slice(0, 2)} />
                                     </div>
                                     <div className="textBlock">

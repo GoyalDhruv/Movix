@@ -7,7 +7,7 @@ function popularActor() {
     // console.log('actor', data)
 
     return (
-        <div className='carouselSection'>
+        <>
             <div className='container'>
                 <div className='row mb-3'>
                     <div className='col'>
@@ -16,7 +16,7 @@ function popularActor() {
                 </div>
             </div>
             <CarouselActor data={data?.results} loading={loading} />
-        </div>
+        </>
     )
 }
 

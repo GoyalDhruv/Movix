@@ -8,6 +8,7 @@
         padding-top: 100px;
         min-height: 700px;
     }
+
 }
 
 .detailsBanner .backdrop-img {
@@ -41,37 +42,9 @@
     left: 0;
 }
 
-
-.detailsBanner .content {
-    position: relative;
-}
-
-
 .detailsBanner .content .left .posterImg {
     width: 100%;
     border-radius: 12px;
-}
-
-
-.detailsBanner .content .right {
-    color: white;
-}
-
-.detailsBanner .content .right .title {
-    font-size: 28px;
-    line-height: 40px;
-}
-
-@media (min-width: 768px) {
-    .detailsBanner .content .right .title {
-        font-size: 34px;
-        line-height: 44px;
-    }
-}
-
-.detailsBanner .content .right .subtitle {
-    font-style: italic;
-    opacity: 0.5;
 }
 
 
@@ -124,58 +97,14 @@
 }
 
 
-.detailsBanner .content .right .info {
+.info {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 15px 0;
 }
 
-
-.detailsBanner .content .right .info .text {
-    margin-right: 10px;
-    opacity: 0.5;
-}
-
-.detailsBanner .content .right .info .text.bold {
-    font-weight: 600;
-    opacity: 1;
-}
-
-
-.detailsBanner .detailsBannerSkeleton {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    gap: 25px;
-}
-
-@media (min-width: 768px) {
-    .detailsBanner .detailsBannerSkeleton {
-        gap: 50px;
-        flex-direction: row;
-    }
-}
-
-.detailsBanner .detailsBannerSkeleton .contentWrapper {
-    display: flex;
-    gap: 50px;
-}
-
 .detailsBanner .detailsBannerSkeleton .left {
-    flex-shrink: 0;
-    width: 100%;
-    display: block;
     border-radius: 12px;
     aspect-ratio: 1/1.5;
-}
-
-@media (min-width: 768px) {
-    .detailsBanner .detailsBannerSkeleton .left {
-        max-width: 350px;
-    }
-}
-
-.detailsBanner .detailsBannerSkeleton .right {
-    width: 100%;
 }
 
 .detailsBanner .detailsBannerSkeleton .right .row {

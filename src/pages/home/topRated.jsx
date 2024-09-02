@@ -13,7 +13,7 @@ function topRated() {
     }
 
     return (
-        <div className='carouselSection'>
+        <>
             <div className='container'>
                 <div className='row mb-3'>
                     <div className='col-xl-10 col-lg-9 col-md-8 col-sm-7 col-5'>
@@ -28,7 +28,7 @@ function topRated() {
                 </div>
             </div>
             <Carousel data={data?.results} loading={loading} endPoint={endPoint} />
-        </div>
+        </>
     )
 }
 

@@ -1,7 +1,6 @@
 .heroBanner {
     height: 450px;
     background-color: var(--black);
-    position: relative;
 }
 
 @media (min-width: 768px) {
@@ -52,18 +51,6 @@
     .heroBannerContent .title {
         margin-bottom: 0;
         font-size: 90px;
-    }
-}
-
-.heroBannerContent .subTitle {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 40px;
-}
-
-@media (min-width: 768px) {
-    .heroBannerContent .subTitle {
-        font-size: 24px;
     }
 }
 

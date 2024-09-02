@@ -1,22 +1,3 @@
-.movieCard {
-    width: calc(50% - 5px);
-    margin-bottom: 25px;
-    cursor: pointer;
-    flex-shrink: 0;
-}
-
-@media (min-width: 768px) {
-    .movieCard {
-        width: calc(25% - 15px);
-    }
-}
-
-@media (min-width: 1024px) {
-    .movieCard {
-        width: calc(20% - 16px);
-    }
-}
-
 .movieCard .posterBlock {
     position: relative;
     width: 100%;
@@ -57,13 +38,6 @@
     flex-shrink: 0;
 }
 
-@media (min-width: 768px) {
-    .movieCard .posterBlock .circleRating {
-        width: 50px;
-        height: 50px;
-    }
-}
-
 .movieCard .posterBlock .genres {
     display: none;
     position: relative;
@@ -75,12 +49,6 @@
         flex-flow: wrap;
         justify-content: flex-end;
     }
-}
-
-.movieCard .textBlock {
-    color: white;
-    display: flex;
-    flex-direction: column;
 }
 
 .movieCard .textBlock .title {

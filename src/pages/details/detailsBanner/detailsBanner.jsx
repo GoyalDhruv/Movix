@@ -3,7 +3,6 @@ import useFetch from '../../../hooks/useFetch.jsx'
 import { useParams } from 'react-router-dom'
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
-import ContentWrapper from "../../../components/contentWrapper/contentWrapper.jsx";
 import Genres from "../../../components/genres/Genres";
 import CircleRating from "../../../components/circleRating/circleRating.jsx";
 import Img from "../../../components/lazyLoadImage/Img.jsx";
@@ -51,7 +50,7 @@ const DetailsBanner = ({ video, crew }) => {
                             <div className="opacity-layer">
                             </div>
                             <div className="container">
-                                <div className="content">
+                                <div className="content position-relative pt-3 pt-md-0">
                                     <div className="row">
                                         <div className="left col-md-3">
                                             {
@@ -65,16 +64,16 @@ const DetailsBanner = ({ video, crew }) => {
                                                     />
                                             }
                                         </div>
-                                        <div className="right col-md-9">
-                                            <div className="title">
+                                        <div className="right text-white col-md-9 pt-4 pt-md-0">
+                                            <h2>
                                                 {`${data.name || data.title} (${dayjs(data?.release_date).format('YYYY')})`}
-                                            </div>
-                                            <h5 className="subtitle mb-3">
+                                            </h2>
+                                            <h5 className=" fst-italic opacity-50 mb-3">
                                                 {data.tagline}
                                             </h5>
                                             <Genres data={_genres} />
                                             <div className="row gap-4">
-                                                <CircleRating rating={data.vote_average.toFixed(1)} />
+                                                <CircleRating rating={data.vote_average.toFixed(1)}/>
 
                                                 <div className="playbtn cursor-pointer d-flex align-items-center gap-2" onClick={() => {
                                                     setShow(true);
@@ -95,33 +94,33 @@ const DetailsBanner = ({ video, crew }) => {
                                             <div className="info d-flex">
                                                 {data.status && (
                                                     <div className="infoItem d-flex">
-                                                        <span className="text bold
+                                                        <span className="fw-bold
                                                     ">
                                                             Status:{" "}
                                                         </span>
-                                                        <span className="text">
+                                                        <span className="ms-1 opacity-50">
                                                             {data.status}
                                                         </span>
                                                     </div>
                                                 )}
                                                 {data.release_date && (
                                                     <div className="infoItem">
-                                                        <span className="text bold
+                                                        <span className="fw-bold
                                                     ">
                                                             Release Date:{" "}
                                                         </span>
-                                                        <span className="text">
+                                                        <span className="ms-1 opacity-50">
                                                             {dayjs(data.release_date).format('MMM D, YYYY')}
                                                         </span>
                                                     </div>
                                                 )}
                                                 {data.runtime && (
                                                     <div className="infoItem">
-                                                        <span className="text bold
+                                                        <span className="fw-bold
                                                     ">
                                                             RunTime:{" "}
                                                         </span>
-                                                        <span className="text">
+                                                        <span className="ms-1 opacity-50">
                                                             {toHoursAndMinutes(data.runtime)}
                                                         </span>
                                                     </div>
@@ -130,10 +129,10 @@ const DetailsBanner = ({ video, crew }) => {
 
                                             {director?.length > 0 && (
                                                 <div className="info">
-                                                    <span className="text bold">
+                                                    <span className="fw-bold">
                                                         Director:{" "}
                                                     </span>
-                                                    <span className="text">
+                                                    <span className="ms-1 opacity-50">
                                                         {director.map((d, i) =>
                                                             <span key={i}>
                                                                 {d.name}
@@ -145,10 +144,10 @@ const DetailsBanner = ({ video, crew }) => {
                                             )}
                                             {writer?.length > 0 && (
                                                 <div className="info">
-                                                    <span className="text bold">
+                                                    <span className="fw-bold">
                                                         Writer:{" "}
                                                     </span>
-                                                    <span className="text">
+                                                    <span className="ms-1 opacity-50">
                                                         {writer.map((d, i) =>
                                                             <span key={i}>
                                                                 {d.name}
@@ -161,10 +160,10 @@ const DetailsBanner = ({ video, crew }) => {
 
                                             {data?.created_by?.length > 0 && (
                                                 <div className="info">
-                                                    <span className="text bold">
+                                                    <span className="fw-bold">
                                                         Creator:{" "}
                                                     </span>
-                                                    <span className="text">
+                                                    <span className="ms-1 opacity-50">
                                                         {data.created_by.map((d, i) =>
                                                             <span key={i}>
                                                                 {d.name}
@@ -191,18 +190,20 @@ const DetailsBanner = ({ video, crew }) => {
 
             ) : (
                 <div className="detailsBannerSkeleton">
-                    <ContentWrapper>
-                        <div className="left skeleton"></div>
-                        <div className="right">
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
+                    <div className="container">
+                        <div className="row">
+                            <div className="left skeleton col-md-3"></div>
+                            <div className="right col-md-8 offset-md-1 pt-5 pt-md-0">
+                                <div className="row skeleton"></div>
+                                <div className="row skeleton"></div>
+                                <div className="row skeleton"></div>
+                                <div className="row skeleton"></div>
+                                <div className="row skeleton"></div>
+                                <div className="row skeleton"></div>
+                                <div className="row skeleton"></div>
+                            </div>
                         </div>
-                    </ContentWrapper>
+                    </div>
                 </div>
             )}
         </div>

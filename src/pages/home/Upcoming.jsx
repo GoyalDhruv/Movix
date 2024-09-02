@@ -7,7 +7,7 @@ function Upcoming() {
     // console.log('upcoming', data)
 
     return (
-        <div className='carouselSection'>
+        <>
             <div className='container'>
                 <div className='row mb-3'>
                     <div className='col'>
@@ -16,7 +16,7 @@ function Upcoming() {
                 </div>
             </div>
             <Carousel data={data?.results} loading={loading} />
-        </div>
+        </>
     )
 }
 

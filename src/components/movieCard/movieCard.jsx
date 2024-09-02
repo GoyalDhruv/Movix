@@ -16,7 +16,8 @@ const MovieCard = ({ data, fromSearch, mediaType }) => {
         : PosterFallback;
     return (
         <div
-            className="movieCard"
+            className="movieCard p-2 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mb-3"
+            style={{ cursor: "pointer" }}
             onClick={() =>
                 navigate(`/${data.media_type || mediaType}/${data.id}`)
             }
@@ -30,7 +31,7 @@ const MovieCard = ({ data, fromSearch, mediaType }) => {
                     </>
                 )}
             </div>
-            <div className="textBlock">
+            <div className="textBlock text-white d-flex flex-column">
                 <span className="title">{data.title || data.name}</span>
                 <span className="date">
                     {dayjs(data.release_date).format("MMM D, YYYY")}

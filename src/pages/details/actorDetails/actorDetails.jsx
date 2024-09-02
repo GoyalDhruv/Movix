@@ -2,37 +2,26 @@ import React, { useState } from "react";
 import useFetch from '../../../hooks/useFetch.jsx'
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
-import ContentWrapper from "../../../components/contentWrapper/contentWrapper.jsx";
 import Img from "../../../components/lazyLoadImage/Img.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
-// import "../detailsBanner/detailsBanner.jsx";
-import "./style.css";
+import "../detailsBanner/detailsBanner.jsx";
 import Carousel from "../../../components/carousel/carousel.jsx";
 
 const actorDetails = ({ id }) => {
 
+    const actor = true
+
     const { url } = useSelector((state) => state.home)
 
     const { data, loading } = useFetch(`/person/${id}`)
-    // console.log('data', data)
     const { data: combined_credits, loading: combined_credits_loading } = useFetch(`/person/${id}/combined_credits`)
 
-    // console.log('combined_credits2', combined_credits?.cast)
-
-    const _genres = data?.genres?.map((item) => item.id)
-
-
-    const toHoursAndMinutes = (totalMinutes) => {
-        const hours = Math.floor(totalMinutes / 60);
-        const minutes = totalMinutes % 60;
-        return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
-    };
 
     return (
         <div className="detailsBanner">
             {!loading ? (
                 <>
-                    {!!data && (
+                    {!!data &&
                         <>
                             <div className="backdrop-img">
                                 <Img src={url.backdrop + data?.profile_path} />
@@ -40,7 +29,7 @@ const actorDetails = ({ id }) => {
                             <div className="opacity-layer">
                             </div>
                             <div className="container">
-                                <div className="content">
+                                <div className="content position-relative pt-3 pt-md-0">
                                     <div className="row">
                                         <div className="left col-md-3 text-white">
                                             {
@@ -56,22 +45,22 @@ const actorDetails = ({ id }) => {
                                             <div className="info mt-3">
                                                 {data.known_for_department && (
                                                     <div className="infoItem">
-                                                        <span className="text bold
+                                                        <span className="fw-bold
                                                     ">
-                                                            Known For{" "}
+                                                            Known For:{" "}
                                                         </span>
-                                                        <span className="text">
+                                                        <span className="ms-1 opacity-50">
                                                             {data.known_for_department}
                                                         </span>
                                                     </div>
                                                 )}
                                                 {data.gender && (
                                                     <div className="infoItem">
-                                                        <span className="text bold
+                                                        <span className="fw-bold
                                                     ">
-                                                            Gender{" "}
+                                                            Gender:{" "}
                                                         </span>
-                                                        <span className="text">
+                                                        <span className="ms-1 opacity-50">
                                                             {
                                                                 data.gender == 2 ? "Male" : "Female"
                                                             }
@@ -80,49 +69,60 @@ const actorDetails = ({ id }) => {
                                                 )}
                                                 {data.birthday && (
                                                     <div className="infoItem">
-                                                        <span className="text bold
+                                                        <span className="fw-bold
                                                     ">
-                                                            Birthday{" "}
+                                                            Birthday:{" "}
                                                         </span>
-                                                        <span className="text">
+                                                        <span className="ms-1 opacity-50">
                                                             {dayjs(data.birthday).format("MMMM DD, YYYY")}
                                                         </span>
                                                     </div>
                                                 )}
                                                 {data.place_of_birth && (
                                                     <div className="infoItem">
-                                                        <span className="text bold
+                                                        <span className="fw-bold
                                                     ">
-                                                            Place of Birth{" "}
+                                                            Place of Birth:{" "}
                                                         </span>
-                                                        <span className="text">
+                                                        <span className="ms-1 opacity-50">
                                                             {data.place_of_birth}
                                                         </span>
                                                     </div>
                                                 )}
                                             </div>
                                         </div>
-                                        <div className="right col-md-9 ">
-                                            <div className="title">
+                                        <div className="right text-white col-md-9 ">
+                                            <h2 className="title">
                                                 {`${data.name || data.title} (${dayjs(data?.release_date).format('YYYY')})`}
-                                            </div>
-                                            <div className="subtitle">
+                                            </h2>
+                                            <div className="fst-italic opacity-50">
                                                 {data.tagline}
                                             </div>
                                             <div className="overview mt-3">
-                                                <h4 className="heading">
-                                                    Biography
-                                                </h4>
-                                                <div className="description">
-                                                    {data.biography}
-                                                </div>
+                                                {
+                                                    data?.biography &&
+                                                    <>
+                                                        <h4 className="heading">
+                                                            Biography
+                                                        </h4>
+                                                        <div className="description">
+                                                            {data?.biography?.slice(0, 1800)}...
+                                                        </div>
+                                                    </>
+                                                }
                                                 <div>
                                                     <div className="heading">
-                                                        <p className="text bold my-3">Known For</p>
-                                                        <Carousel
-                                                            data={combined_credits?.cast}
-                                                            loading={combined_credits_loading}
-                                                        />
+                                                        {
+                                                            combined_credits?.cast &&
+                                                            <>
+                                                                <p className="fw-bold my-3">Known For</p>
+                                                                <Carousel
+                                                                    data={combined_credits?.cast}
+                                                                    loading={combined_credits_loading}
+                                                                    actor={actor}
+                                                                />
+                                                            </>
+                                                        }
                                                     </div>
                                                 </div>
                                             </div>
@@ -131,24 +131,25 @@ const actorDetails = ({ id }) => {
                                 </div>
                             </div>
                         </>
-                    )
                     }
                 </>
 
             ) : (
                 <div className="detailsBannerSkeleton">
-                    <ContentWrapper>
-                        <div className="left skeleton"></div>
-                        <div className="right">
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
-                            <div className="row skeleton"></div>
+                    <div className="container">
+                        <div className="row">
+                            <div className="left skeleton col-md-3"></div>
+                            <div className="right col-md-8 offset-md-1 pt-5 pt-md-0">
+                                <div className="row skeleton"></div>
+                                <div className="row skeleton"></div>
+                                <div className="row skeleton"></div>
+                                <div className="row skeleton"></div>
+                                <div className="row skeleton"></div>
+                                <div className="row skeleton"></div>
+                                <div className="row skeleton"></div>
+                            </div>
                         </div>
-                    </ContentWrapper>
+                    </div>
                 </div>
             )
             }

@@ -98,11 +98,11 @@ const Explore = () => {
             <div className="container">
                 <div className="row mb-3">
                     <div className="col-lg-4">
-                        <div className="pageTitle mb-3 text-white">
+                        <h4 className="text-white">
                             {mediaType === "tv"
                                 ? "Explore TV Shows"
                                 : "Explore Movies"}
-                        </div>
+                        </h4>
                     </div>
                     <div className="col-lg-8">
                         <div className="filters d-flex flex-md-row gap-2 flex-column justify-content-end ">
@@ -139,24 +139,26 @@ const Explore = () => {
                     :
                     <>
                         {data?.results?.length > 0 ? (
-                            <InfiniteScroll
-                                className="content d-flex flex-wrap"
-                                dataLength={data?.results?.length || []}
-                                next={fetchNextPageData}
-                                hasMore={pageNum <= data?.total_pages}
-                                loader={<ClipLoader />}
-                            >
-                                {data?.results?.map((item, index) => {
-                                    if (item.media_type === "person") return;
-                                    return (
-                                        <MovieCard
-                                            key={index}
-                                            data={item}
-                                            mediaType={mediaType}
-                                        />
-                                    );
-                                })}
-                            </InfiniteScroll>
+                            <div className="col-12">
+                                <InfiniteScroll
+                                    className="d-flex flex-wrap"
+                                    dataLength={data?.results?.length || []}
+                                    next={fetchNextPageData}
+                                    hasMore={pageNum <= data?.total_pages}
+                                    loader={<ClipLoader />}
+                                >
+                                    {data?.results?.map((item, index) => {
+                                        if (item.media_type === "person") return;
+                                        return (
+                                            <MovieCard
+                                                key={index}
+                                                data={item}
+                                                mediaType={mediaType}
+                                            />
+                                        );
+                                    })}
+                                </InfiniteScroll>
+                            </div>
                         ) : (
                             <span className="resultNotFound">
                                 Sorry, Results not found!

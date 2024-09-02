@@ -9,20 +9,17 @@ import Recommendation from './carousels/Recommendation'
 
 function Details() {
     const { mediaType, id } = useParams()
-    let video = null, videoLoading = false, credits = null, creditsLoading = false
+    let video = null
+    let credits = null
+    let creditsLoading = false
 
     if (mediaType === 'movie' || mediaType === 'tv') {
         const videoFetch = useFetch(`/${mediaType}/${id}/videos`)
         const creditsFetch = useFetch(`/${mediaType}/${id}/credits`)
         video = videoFetch.data
-        videoLoading = videoFetch.loading
         credits = creditsFetch.data
         creditsLoading = creditsFetch.loading
     }
-
-    // console.log('credit', credits)
-    // console.log('video', video)
-
 
     return (
         <div>{

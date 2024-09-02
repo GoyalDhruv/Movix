@@ -32,9 +32,13 @@ function HeroBanner() {
                         <ClipLoader />
                     </div>
                     :
-                    <div className='heroBanner d-flex align-items-center w-100'>
+                    <div className='heroBanner d-flex align-items-center w-100 position-relative'>
                         <div className="backdrop-img">
-                            <Img src={background} alt="" />
+                            {
+                                background ?
+                                    <Img src={background} alt="" />
+                                    : null
+                            }
                         </div>
 
                         <div className="opacity_layer"></div>
@@ -47,7 +51,7 @@ function HeroBanner() {
                                         <span className="title display-4 font-weight-bold">
                                             Welcome
                                         </span>
-                                        <span className="subTitle h4 font-weight-normal">
+                                        <span className=" h4 font-weight-normal mb-0 mb-md-4">
                                             Millions of movies, TV shows, and people to discover.
                                             Explore now.
                                         </span>

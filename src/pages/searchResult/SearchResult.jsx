@@ -4,8 +4,6 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { FetchDataFromApi } from '../../utils/api'
 import ClipLoader from "react-spinners/ClipLoader";
 import MovieCard from '../../components/movieCard/movieCard'
-import './style.css'
-
 
 function SearchResult() {
 
@@ -46,44 +44,52 @@ function SearchResult() {
 
 
     return (
-        <div className='searchResultsPage min-vh-100'>
+        <>
             {loading ?
                 <div className='d-flex w-100 justify-content-center h-100 align-items-center'>
                     <ClipLoader />
                 </div>
                 :
-                <div className='container'>
+                <div className='container' style={{ paddingTop: "100px" }}>
                     {
                         data?.results.length > 0 ?
-                            <>
-                                <div className="pageTitle mb-3 text-white">
-                                    {`Search ${data?.results.length > 1 ? 'results' : 'result'}
+                            <div className='row mb-4'>
+                                <div className='col-12'>
+                                    <h4 className="text-white">
+                                        {`Search ${data?.results.length > 1 ? 'results' : 'result'}
                                          of '${query}'
                                         `}
+                                    </h4>
                                 </div>
-                                <InfiniteScroll
-                                    className='content d-flex flex-wrap'
-                                    dataLength={data?.results?.length || []}
-                                    next={fetchNextPageData}
-                                    hasMore={pageNum <= data?.total_pages}
-                                    loader={<ClipLoader />}
-                                >
-                                    {data?.results.map((item, index) => {
-                                        if (item.media_type === 'person') return;
-                                        return (
-                                            <MovieCard key={index} data={item} fromSearch={true} />
-                                        )
-                                    })}
-                                </InfiniteScroll>
-                            </>
+                                <div className='col-12'>
+                                    <InfiniteScroll
+                                        className='d-flex flex-wrap'
+                                        dataLength={data?.results?.length || []}
+                                        next={fetchNextPageData}
+                                        hasMore={pageNum <= data?.total_pages}
+                                        loader={<ClipLoader />}
+                                    >
+                                        {data?.results.map((item, index) => {
+                                            if (item.media_type === 'person') return;
+                                            return (
+                                                <MovieCard key={index} data={item} fromSearch={true} />
+                                            )
+                                        })}
+                                    </InfiniteScroll>
+                                </div>
+                            </div>
                             :
-                            <span className='resultNotFound text-muted'>
-                                Sorry, Results not found
-                            </span>
+                            <div className="d-flex justify-content-center align-items-center" style={{ height: "500px" }}>
+                                <div className="container">
+                                    <div className="text-center" style={{ color: "#173d77" }}>
+                                        <div style={{ fontSize: "50px", fontWeight: "700" }}>Sorry, Results not found</div>
+                                    </div>
+                                </div>
+                            </div>
                     }
                 </div>
             }
-        </div>
+        </>
     )
 }
 

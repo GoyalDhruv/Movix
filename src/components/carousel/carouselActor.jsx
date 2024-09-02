@@ -60,7 +60,7 @@ function carouselActor({ data, loading }) {
                                         <Img src={posterUrl} />
                                     </div>
                                     <div className="textBlock">
-                                        <span className="title">{item.title || item.name}</span>
+                                        <span className="title text-white fs-5">{item.title || item.name}</span>
                                     </div>
                                 </div>
                             )

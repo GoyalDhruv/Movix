@@ -8,17 +8,10 @@
         padding-top: 100px;
         min-height: 700px;
     }
-
 }
 
 .detailsBanner .backdrop-img {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
     opacity: 0.1;
-    overflow: hidden;
 }
 
 .detailsBanner .backdrop-img .lazy-load-image-background {
@@ -95,7 +88,6 @@
 .detailsBanner .content .right .playbtn:hover .circle {
     stroke: #ff007f;
 }
-
 
 .info {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);

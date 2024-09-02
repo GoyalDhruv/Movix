@@ -2,13 +2,6 @@
     margin-bottom: 50px;
 }
 
-.carousel .carouselTitle {
-    font-size: 24px;
-    color: white;
-    margin-bottom: 20px;
-    font-weight: normal;
-}
-
 .carousel .arrow {
     font-size: 30px;
     color: black;
@@ -21,38 +14,16 @@
     display: none;
 }
 
-@media (min-width: 768px) {
-    .carousel .arrow {
-        display: block;
-    }
-}
-
 .carousel .arrow:hover {
     opacity: 0.8;
 }
 
 .carousel .carouselLeftNav {
-    left: 5% !important;
+    left: 5%;
 }
 
 .carousel .carouselRighttNav {
-    right: 5% !important;
-}
-
-
-.carousel .carouselItems {
-    display: flex;
-    gap: 10px;
-    overflow-y: hidden;
-}
-
-@media (min-width: 768px) {
-    .carousel .carouselItems {
-        gap: 20px;
-        overflow: hidden;
-        margin: 0;
-        padding: 0;
-    }
+    right: 5%;
 }
 
 .carousel .carouselItems .carouselItem {
@@ -61,19 +32,9 @@
     flex-shrink: 0;
 }
 
-@media (min-width: 768px) {
-    .carousel .carouselItems .carouselItem {
-        width: calc(25% - 15px);
-    }
-}
-
-@media (min-width: 1024px) {
-    .carousel .carouselItems .carouselItem {
-        width: calc(20% - 16px);
-    }
-}
-
-.carousel .carouselItems .carouselItem .posterBlock {
+.carousel .carouselItems .carouselItem .posterBlock,
+.carousel .loadingSkeleton .skeletonItem .posterBlock {
+    border-radius: 12px;
     position: relative;
     width: 100%;
     aspect-ratio: 1 / 1.5;
@@ -101,66 +62,13 @@
 }
 
 .carousel .carouselItems .carouselItem .posterBlock .circleRating {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     position: relative;
     top: 30px;
     background-color: white;
     flex-shrink: 0;
 }
-
-@media (min-width: 768px) {
-    .carousel .carouselItems .carouselItem .posterBlock .circleRating {
-        width: 50px;
-        height: 50px;
-    }
-}
-
-.carousel .carouselItems .carouselItem .posterBlock .genres {
-    display: none;
-    position: relative;
-}
-
-@media (min-width: 768px) {
-    .carousel .carouselItems .carouselItem .posterBlock .genres {
-        display: flex;
-        flex-flow: wrap;
-        justify-content: flex-end;
-    }
-}
-
-.carousel .carouselItems .carouselItem .textBlock {
-    color: white;
-    display: flex;
-    flex-direction: column;
-}
-
-.carousel .carouselItems .carouselItem .textBlock .title {
-    font-size: 16px;
-    margin-bottom: 10px;
-    line-height: 24px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-@media (min-width: 768px) {
-    .carousel .carouselItems .carouselItem .textBlock .title {
-        font-size: 20px;
-    }
-}
-
-.carousel .carouselItems .carouselItem .textBlock .date {
-    font-size: 14px;
-    opacity: 0.5;
-}
-
-/* Loading Skeleton */
-.carousel .loadingSkeleton {
-    gap: 10px;
-    overflow-y: hidden;
-}
-
 
 .carousel .loadingSkeleton .skeletonItem {
     width: 125px;
@@ -168,25 +76,26 @@
 }
 
 @media (min-width: 768px) {
+    .carousel .arrow {
+        display: block;
+    }
+
+    .carousel .carouselItems .carouselItem,
     .carousel .loadingSkeleton .skeletonItem {
         width: calc(25% - 15px);
     }
 }
 
 @media (min-width: 1024px) {
+
+    .carousel .carouselItems .carouselItem,
     .carousel .loadingSkeleton .skeletonItem {
         width: calc(20% - 16px);
     }
 }
 
-.carousel .loadingSkeleton .skeletonItem .posterBlock {
-    border-radius: 12px;
-    width: 100%;
-    aspect-ratio: 1 / 1.5;
-    margin-bottom: 30px;
-}
-
 .carousel .loadingSkeleton .skeletonItem .textBlock .title,
 .carousel .loadingSkeleton .skeletonItem .textBlock .date {
     height: 20px;
+    border-radius: 12px;
 }

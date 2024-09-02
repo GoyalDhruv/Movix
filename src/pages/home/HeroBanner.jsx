@@ -33,10 +33,10 @@ function HeroBanner() {
                     </div>
                     :
                     <div className='heroBanner d-flex align-items-center w-100 position-relative'>
-                        <div className="backdrop-img">
+                        <div className="w-100 h-100 position-absolute top-0 start-0 opacity-50 overflow-hidden">
                             {
                                 background ?
-                                    <Img src={background} alt="" />
+                                    <Img src={background} alt="" className='object-fit-cover w-100 h-100' />
                                     : null
                             }
                         </div>

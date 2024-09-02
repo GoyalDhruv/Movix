@@ -23,7 +23,7 @@ const actorDetails = ({ id }) => {
                 <>
                     {!!data &&
                         <>
-                            <div className="backdrop-img">
+                            <div className="backdrop-img  w-100 h-100 position-absolute top-0 start-0 overflow-hidden">
                                 <Img src={url.backdrop + data?.profile_path} />
                             </div>
                             <div className="opacity-layer">

@@ -43,7 +43,9 @@ function Carousel({ data, loading, endPoint, title, actor }) {
     return (
         <div className="carousel">
             <div className="container">
-                {title && <div className="carouselTitle">{title}</div>}
+                {title &&
+                    <h3 className="text-white mb-3">{title}</h3>
+                }
                 <BsFillArrowLeftCircleFill
                     className="carouselLeftNav arrow"
                     color="white"
@@ -55,7 +57,7 @@ function Carousel({ data, loading, endPoint, title, actor }) {
                     onClick={() => navigation('right')}
                 />
                 {!loading ? (
-                    <div className="carouselItems" ref={carouselContainer}>
+                    <div className="carouselItems d-flex gap-2 overflow-y-hidden" ref={carouselContainer}>
                         {data?.map((item) => {
                             const posterUrl = item?.poster_path ? url.poster + item?.poster_path : PosterFallback;
                             return (
@@ -71,16 +73,16 @@ function Carousel({ data, loading, endPoint, title, actor }) {
                                         }
                                         <Genres data={item?.genre_ids.slice(0, 2)} />
                                     </div>
-                                    <div className="textBlock">
-                                        <span className="title">{item?.title || item?.name}</span>
-                                        <span className="date">{dayjs(item?.release_date).format("MMM D, YYYY")}</span>
+                                    <div className="textBlock d-flex text-white flex-column">
+                                        <span className="mb-2 overflow-hidden text-truncate fs-5">{item?.title || item?.name}</span>
+                                        <span className="opacity-50">{dayjs(item?.release_date).format("MMM D, YYYY")}</span>
                                     </div>
                                 </div>
                             );
                         })}
                     </div>
                 ) : (
-                    <div className="loadingSkeleton d-flex">
+                    <div className="loadingSkeleton d-flex gap-2 overflow-y-hidden">
                         {skItem()}
                         {skItem()}
                         {skItem()}

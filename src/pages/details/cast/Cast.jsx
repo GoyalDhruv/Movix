@@ -11,7 +11,7 @@ const Cast = ({ data, loading }) => {
 
     const skeleton = () => (
         <div className="skItem">
-            <div className="circle skeleton"></div>
+            <div className="circle skeleton mb-3 mb-md-4 rounded-circle"></div>
             <div className="row skeleton"></div>
             <div className="row2 skeleton"></div>
         </div>
@@ -27,8 +27,8 @@ const Cast = ({ data, loading }) => {
                             let ImgURL = item.profile_path ? url.profile + item.profile_path : avatar;
                             return (
                                 <div key={item.id} className="text-white text-center" onClick={() => navigate(`/${item.name}/${item.id}`)}>
-                                    <div className="profileImg">
-                                        <Img src={ImgURL} alt={item.name} />
+                                    <div className="profileImg rounded-circle overflow-hidden mb-3 mb-md-4">
+                                        <Img src={ImgURL} alt={item.name} className='w-100 h-100 object-fit-cover'/>
                                     </div>
                                     <div>{item.name}</div>
                                     <div className="character opacity-50">{item.character}</div>

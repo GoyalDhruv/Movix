@@ -6,7 +6,7 @@ function SwitchTabs({ data, onTabChange }) {
     const [left, setLeft] = useState(0);
 
     function activeTab(item, index) {
-        setLeft(index * 100);
+        setLeft(index * 96);
         setTimeout(() => {
             setSelectedTab(index);
         }, 300);
@@ -14,13 +14,13 @@ function SwitchTabs({ data, onTabChange }) {
     }
 
     return (
-        <div className='switchingTabs'>
-            <div className="tabItems d-flex align-items-center">
+        <div className='switchingTabs bg-white'>
+            <div className="tabItems d-flex align-items-center position-relative">
                 {data.map((item, index) => (
                     <span
                         key={index}
-                        className={`tabItem d-flex align-items-center justify-content-center
-                             ${selectedTab === index ? 'active' : ""}`}
+                        className={`tabItem h-100 position-relative d-flex align-items-center justify-content-center
+                             ${selectedTab === index ? 'text-white' : ""}`}
                         onClick={() => activeTab(item, index)}
                     >
                         {item}

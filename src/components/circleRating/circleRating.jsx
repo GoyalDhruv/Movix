@@ -6,7 +6,7 @@ import "./style.css";
 
 const circleRating = ({ rating }) => {
     return (
-        <div className="circleRating p-0 m-2">
+        <div className="circleRating p-0 m-lg-2 m-0">
             <CircularProgressbar
                 value={rating}
                 maxValue={10}

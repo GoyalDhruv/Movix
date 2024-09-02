@@ -25,10 +25,6 @@ function carouselActor({ data, loading }) {
         return (
             <div className="skeletonItem">
                 <div className="posterBlock skeleton">
-                    <div className="textBlock d-flex flex-column">
-                        <div className="title skeleton mb-3 w-100"></div>
-                        <div className="date skeleton w-75"></div>
-                    </div>
                 </div>
             </div>
         );
@@ -49,7 +45,7 @@ function carouselActor({ data, loading }) {
                     color="white"
                 />
                 {!loading ?
-                    <div className="carouselItems"
+                    <div className="carouselItems d-flex gap-2 overflow-y-hidden"
                         ref={carouselContainer}
                     >
                         {data?.map((item) => {
@@ -71,7 +67,7 @@ function carouselActor({ data, loading }) {
                         })}
                     </div>
                     :
-                    <div className="loadingSkeleton d-flex">
+                    <div className="loadingSkeleton d-flex gap-2 overflow-y-hidden">
                         {skItem()}
                         {skItem()}
                         {skItem()}

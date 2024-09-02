@@ -44,7 +44,7 @@ const DetailsBanner = ({ video, crew }) => {
                 <>
                     {!!data && (
                         <>
-                            <div className="backdrop-img">
+                            <div className="backdrop-img w-100 h-100 position-absolute top-0 start-0 overflow-hidden">
                                 <Img src={url.backdrop + data?.backdrop_path} />
                             </div>
                             <div className="opacity-layer">
@@ -72,9 +72,10 @@ const DetailsBanner = ({ video, crew }) => {
                                                 {data.tagline}
                                             </h5>
                                             <Genres data={_genres} />
-                                            <div className="row gap-4">
-                                                <CircleRating rating={data.vote_average.toFixed(1)}/>
-
+                                            <div className="row">
+                                                <div className="mb-2">
+                                                    <CircleRating rating={data.vote_average.toFixed(1)} />
+                                                </div>
                                                 <div className="playbtn cursor-pointer d-flex align-items-center gap-2" onClick={() => {
                                                     setShow(true);
                                                     setVideoId(video.key);
